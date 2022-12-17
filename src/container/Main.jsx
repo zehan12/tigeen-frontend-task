@@ -1,9 +1,14 @@
-import { Fragment } from "react"
+import { Fragment, useState } from "react"
+import Header from "../components/common/Header";
 
-const Main = ( ) => {
+const Main = () => {
+  
     return (
         <Fragment>
-            <h1 className="bg-red-800 text-bold font-mono text-white text-4xl" >Main container App</h1>
+            <Header />
+
+                <h1 className="bg-red-800 text-bold font-mono text-white text-4xl" >Main container App</h1>
+  
         </Fragment>
     )
 }
