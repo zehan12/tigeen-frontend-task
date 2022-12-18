@@ -23,8 +23,23 @@ const menuItems = [
 const listItemStyles = 'flex font-mono items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700';
 
 const Drawer = ({ position }) => {
+
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  const toggleOverlay = () => {
+    setShowOverlay(!showOverlay);
+  };
+
   return (
-    <div className={`fixed z-40 h-screen p-4 overflow-y-auto bg-white w-56 ${position === 'left' ? '' : 'right-0'} dark:bg-gray-800`}>
+    <div>
+      { showOverlay && 
+        <div className="overlay" style={{width:"100px"}}>
+          <h1>overlay</h1>
+        </div>
+      }
+
+      <button onClick={toggleOverlay}>Toggle Overlay</button>
+      <div className={`fixed z-40 h-screen p-4 overflow-y-auto bg-white w-56 ${position === 'left' ? '' : 'right-0'} dark:bg-gray-800`}>
       <h5 className="text-base font-mono font-semibold text-gray-500 uppercase dark:text-gray-400">
         Menu
       </h5>
@@ -44,7 +59,10 @@ const Drawer = ({ position }) => {
         </ul>
       </div>
     </div>
+    </div> 
   );
+
+
 };
 
 export default Drawer;

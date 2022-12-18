@@ -13,7 +13,6 @@ const Main = () => {
         <Fragment>
             <Provider store={store} >
                 <BrowserRouter>
-                <h1 className="bg-red">lwqporjoewi</h1>
                     <Header />
                     <AllRoutes />
                     <Footer />
