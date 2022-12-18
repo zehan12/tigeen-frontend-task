@@ -13,11 +13,12 @@ const Home = () => {
         showHeader,
         showFooter,
         showNavTab,
-        showFooterNav
+        showFooterNav,
+        currentStep
     } = STATE
     const dispatch = useDispatch();
 
-    const [currentStep, setCurrentStep] = useState(0);
+    // const [currentStep, setCurrentStep] = useState(0);
 
     const steps = [
         0,
@@ -26,11 +27,13 @@ const Home = () => {
     ]
 
     const handleNext = () => {
-        setCurrentStep(currentStep + 1);
+        // setCurrentStep(currentStep + 1);
+        dispatch({ type: actionType.CURRENT_STEP, payload: currentStep + 1 })
     };
 
     const handlePrev = () => {
-        setCurrentStep(currentStep - 1);
+        // setCurrentStep(currentStep - 1);
+        dispatch({ type: actionType.CURRENT_STEP, payload: currentStep - 1 })
     };
 
     const handleChange = ({ target }) => {
@@ -173,7 +176,7 @@ const Home = () => {
                             <br />
                             <label className="inline-flex items-center space-x-4 cursor-pointer ">
                                 <span className="relative">
-                                    <input onChange={(e) => dispatch({type:actionType.SHOW_NAV_TAB,payload: !showNavTab})} checked={showNavTab} type="checkbox" className="hidden peer" />
+                                    <input onChange={(e) => dispatch({ type: actionType.SHOW_NAV_TAB, payload: !showNavTab })} checked={showNavTab} type="checkbox" className="hidden peer" />
                                     <div className="w-10 h-4 rounded-full shadow dark:bg-gray-600 peer-checked:dark:bg-[#7DB7E7]"></div>
                                     <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-auto bg-gray-200 peer-checked:dark:bg-[#1D74D1]"></div>
                                 </span>
@@ -182,7 +185,7 @@ const Home = () => {
                             <br />
                             <label className="inline-flex items-center space-x-4 cursor-pointer ">
                                 <span className="relative">
-                                    <input onChange={() => dispatch({type:actionType.SHOW_FOOTER_NAV, payload: !showFooterNav })} checked={showFooterNav} type="checkbox" className="hidden peer" />
+                                    <input onChange={() => dispatch({ type: actionType.SHOW_FOOTER_NAV, payload: !showFooterNav })} checked={showFooterNav} type="checkbox" className="hidden peer" />
                                     <div className="w-10 h-4 rounded-full shadow dark:bg-gray-600 peer-checked:dark:bg-[#7DB7E7]"></div>
                                     <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-auto bg-gray-200 peer-checked:dark:bg-[#1D74D1]"></div>
                                 </span>

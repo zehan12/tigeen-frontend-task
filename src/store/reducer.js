@@ -9,11 +9,12 @@ const initialState = {
     showRightDrawer: true,
     showFooter: true,
     showFooterNav: true,
+    currentStep: 0
 }
 
 
 const Reducers = (state = initialState, action) => {
-    console.log(state,action, "action")
+    console.log(state, action, "action")
     switch (action.type) {
         case actionType.SHOW_HEADER:
             state = { ...state, showHeader: action.payload }
@@ -45,6 +46,9 @@ const Reducers = (state = initialState, action) => {
 
         case actionType.SHOW_FOOTER_NAV:
             state = { ...state, showFooterNav: action.payload }
+            return state
+        case actionType.CURRENT_STEP:
+            state = { ...state, currentStep: action.payload }
             return state
         default:
             return state
