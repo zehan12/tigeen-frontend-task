@@ -9,7 +9,8 @@ const initialState = {
     showRightDrawer: true,
     showFooter: true,
     showFooterNav: true,
-    currentStep: 0
+    currentStep: 0,
+    showOverlay: false
 }
 
 
@@ -37,7 +38,7 @@ const Reducers = (state = initialState, action) => {
             return state
 
         case actionType.SHOW_RIGHT_DRAWER:
-            state = { ...state, showLeftDrawer: action.payload }
+            state = { ...state, showRightDrawer: action.payload }
             return state
 
         case actionType.SHOW_FOOTER:
@@ -49,6 +50,9 @@ const Reducers = (state = initialState, action) => {
             return state
         case actionType.CURRENT_STEP:
             state = { ...state, currentStep: action.payload }
+            return state
+        case actionType.SHOW_OVERLAY:
+            state = { ...state, showOverlay: action.payload }
             return state
         default:
             return state

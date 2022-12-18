@@ -4,6 +4,7 @@ import { IoMdSettings } from "react-icons/io";
 import { FaRegPlayCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { actionType } from "../store/action";
+import NoData from "../components/NoData";
 
 const Home = () => {
     const STATE = useSelector((state) => state);
@@ -14,11 +15,12 @@ const Home = () => {
         showFooter,
         showNavTab,
         showFooterNav,
-        currentStep
+        showLeftDrawer,
+        showRightDrawer,
+        currentStep,
+        showOverlay
     } = STATE
     const dispatch = useDispatch();
-
-    // const [currentStep, setCurrentStep] = useState(0);
 
     const steps = [
         0,
@@ -27,12 +29,10 @@ const Home = () => {
     ]
 
     const handleNext = () => {
-        // setCurrentStep(currentStep + 1);
         dispatch({ type: actionType.CURRENT_STEP, payload: currentStep + 1 })
     };
 
     const handlePrev = () => {
-        // setCurrentStep(currentStep - 1);
         dispatch({ type: actionType.CURRENT_STEP, payload: currentStep - 1 })
     };
 
@@ -149,7 +149,7 @@ const Home = () => {
                             <br />
                             <label className="inline-flex items-center space-x-4 cursor-pointer ">
                                 <span className="relative">
-                                    <input onChange={(e) => { console.log(e.target.value) }} type="checkbox" className="hidden peer" />
+                                    <input onChange={() => dispatch({ type: actionType.SHOW_OVERLAY, payload: !showOverlay })} checked={showOverlay} type="checkbox" className="hidden peer" />
                                     <div className="w-10 h-4 rounded-full shadow dark:bg-gray-600 peer-checked:dark:bg-[#7DB7E7]"></div>
                                     <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-auto bg-gray-200 peer-checked:dark:bg-[#1D74D1]"></div>
                                 </span>
@@ -158,7 +158,7 @@ const Home = () => {
                             <br />
                             <label className="inline-flex items-center space-x-4 cursor-pointer ">
                                 <span className="relative">
-                                    <input onChange={(e) => { console.log(e.target.value) }} type="checkbox" className="hidden peer" />
+                                    <input onChange={() => dispatch({ type: actionType.SHOW_LEFT_DRAWER, payload: !showLeftDrawer })} checked={showLeftDrawer} type="checkbox" className="hidden peer" />
                                     <div className="w-10 h-4 rounded-full shadow dark:bg-gray-600 peer-checked:dark:bg-[#7DB7E7]"></div>
                                     <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-auto bg-gray-200 peer-checked:dark:bg-[#1D74D1]"></div>
                                 </span>
@@ -167,7 +167,7 @@ const Home = () => {
                             <br />
                             <label className="inline-flex items-center space-x-4 cursor-pointer ">
                                 <span className="relative">
-                                    <input onChange={(e) => { console.log(e.target.value) }} type="checkbox" className="hidden peer" />
+                                    <input onChange={() => dispatch({ type: actionType.SHOW_RIGHT_DRAWER, payload: !showRightDrawer })} checked={showRightDrawer} type="checkbox" className="hidden peer" />
                                     <div className="w-10 h-4 rounded-full shadow dark:bg-gray-600 peer-checked:dark:bg-[#7DB7E7]"></div>
                                     <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-auto bg-gray-200 peer-checked:dark:bg-[#1D74D1]"></div>
                                 </span>
@@ -193,30 +193,14 @@ const Home = () => {
                             </label>
 
                         </div>
-                    </div> : <div class="min-h-[15rem] flex flex-col bg-white border shadow-sm rounded-xl">
-                        <div class="flex flex-auto flex-col justify-center items-center p-4 md:p-5">
-                            <svg class="max-w-[5rem]" viewBox="0 0 375 428" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M254.509 253.872L226.509 226.872" class="stroke-gray-400 dark:stroke-gray-700" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
-                                <path d="M237.219 54.3721C254.387 76.4666 264.609 104.226 264.609 134.372C264.609 206.445 206.182 264.872 134.109 264.872C62.0355 264.872 3.60864 206.445 3.60864 134.372C3.60864 62.2989 62.0355 3.87207 134.109 3.87207C160.463 3.87207 184.993 11.6844 205.509 25.1196" class="stroke-gray-400 dark:stroke-gray-700" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
-                                <rect x="270.524" y="221.872" width="137.404" height="73.2425" rx="36.6212" transform="rotate(40.8596 270.524 221.872)" class="fill-gray-400 dark:fill-gray-700" fill="currentColor" />
-                                <ellipse cx="133.109" cy="404.372" rx="121.5" ry="23.5" class="fill-gray-400 dark:fill-gray-700" fill="currentColor" />
-                                <path d="M111.608 188.872C120.959 177.043 141.18 171.616 156.608 188.872" class="stroke-gray-400 dark:stroke-gray-700" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
-                                <ellipse cx="96.6084" cy="116.872" rx="9" ry="12" class="fill-gray-400 dark:fill-gray-700" fill="currentColor" />
-                                <ellipse cx="172.608" cy="117.872" rx="9" ry="12" class="fill-gray-400 dark:fill-gray-700" fill="currentColor" />
-                                <path d="M194.339 147.588C189.547 148.866 189.114 142.999 189.728 138.038C189.918 136.501 191.738 135.958 192.749 137.131C196.12 141.047 199.165 146.301 194.339 147.588Z" class="fill-gray-400 dark:fill-gray-700" fill="currentColor" />
-                            </svg>
-                            <p class="mt-5 text-sm text-gray-500 dark:text-gray-500">
-                                No data to show
-                            </p>
-                        </div>
-                    </div>
+                    </div> : <NoData />
                 }
 
 
 
                 <div>
                     <hr className="mx-10" />
-                    <div className="my-4 flex justify-between">
+                    <div className="my-2 flex justify-between">
 
                         {currentStep > 0 && (
 
@@ -227,6 +211,16 @@ const Home = () => {
                                 previous
                             </button>
                         )}
+
+                        {
+                            currentStep === 2 && (
+                                <button
+                                    class="group relative inline-flex items-center overflow-hidden uppercase bg-[#1D74D1] px-4 py-2 text-white focus:outline-none focus:ring active:bg-[##1D74D1] mx-6 my-5 disabled cursor-not-allowed"
+                                >
+                                    finish
+                                </button>
+                            )
+                        }
 
                         {currentStep < steps.length - 1 && (
                             <button

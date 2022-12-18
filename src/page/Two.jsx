@@ -1,6 +1,11 @@
+import { Fragment } from "react";
+import NoService from "../components/NoService";
+
 const Two = ( ) => {
     return(
-        <h1>Two</h1>
+        <Fragment>
+            <NoService />
+        </Fragment>
     )
 }
 export default Two;
