@@ -44,8 +44,8 @@ const Home = () => {
                     </div>
                 </div>
                 <hr style={{ border: "0.3px solid #d0cfcf" }} />
-                <div style={{ border: "1px solid black", width: "80%" }} className=" font-sans">
-                    <div className="form-control font-sans">
+                <div style={{ border: "1px solid black", width: "100%" }} className=" font-sans text-sm font-normal">
+                    <div style={{ width: "70%" }} className="form-control font-sans ml-10 my-3">
                         <label id="demo-row-radio-buttons-group-label" className="form-label">I Want to Company Logo</label>
                         <div className="flex items-center justify-between w-full">
                             <label className="inline-flex items-center">
@@ -67,7 +67,7 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className="form-control">
+                    <div style={{width: "70%" }} className="form-control font-sans ml-10 my-3 mt-7 text-sm" >
                         <label id="demo-row-radio-buttons-group-label" className="form-label">Preset Color</label>
                         <div className="flex items-center w-full justify-start">
                             <label className="inline-flex items-center mr-7">
@@ -151,7 +151,7 @@ const Home = () => {
                     <div>
                         <hr className="mx-10" />
                         <a
-                            class="group relative inline-flex items-center overflow-hidden rounded bg-[#1D74D1] px-4 py-2 text-white focus:outline-none focus:ring active:bg-[##1D74D1] mx-6 my-5"
+                            class="group relative inline-flex items-center overflow-hidden  bg-[#1D74D1] px-4 py-2 text-white focus:outline-none focus:ring active:bg-[##1D74D1] mx-6 my-5"
                             href="/download"
                         >
                             <span
