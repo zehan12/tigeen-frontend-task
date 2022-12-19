@@ -15,13 +15,9 @@ const Header = () => {
         showLeftDrawer,
         showRightDrawer
     } = STATE
-    const dispatch = useDispatch();
 
-    console.log(STATE)
     const [isDrawerOpen, setDrawerOpen] = useState(false);
     const [drawerSide, setDrawerSide] = useState("");
-
-
 
     const handleDrawer = (side) => {
         setDrawerSide(side);
@@ -40,7 +36,7 @@ const Header = () => {
                 showHeader &&
 
                 <div
-                    className={`border-b-1 border-divider p-3 ${color === "blue" ? "bg-blue" : "bg-red"}`}
+                    className={`border-b-1 border-divider p-3 ${color === 'Blue ( #1976d2 )' ? "bg-blue" : "bg-red"}`}
                 >
                     <div className="flex mx-16 my-3 pb-2 pt-2">
                         {
@@ -60,7 +56,7 @@ const Header = () => {
                             className={`flex ${logoPosition === 'left' ? 'justify-start' :
                                 logoPosition === 'right' ? 'justify-end' :
                                     logoPosition === 'center' ? 'justify-center' : ''}`}>
-                            <img className={logoPosition === "disabled" ? "hidden" : ""} src={tigeen} alt="logo" />
+                            <img className={logoPosition === "disable" ? "hidden" : ""} src={tigeen} alt="logo" />
                         </div>
 
 

@@ -4,7 +4,7 @@ const initialState = {
     showHeader: true,
     showNavTab: true,
     logoPosition: "left",
-    color: "blue",
+    color: "Blue ( #1976d2 )",
     showLeftDrawer: true,
     showRightDrawer: true,
     showFooter: true,
@@ -15,7 +15,6 @@ const initialState = {
 
 
 const Reducers = (state = initialState, action) => {
-    console.log(state, action, "action")
     switch (action.type) {
         case actionType.SHOW_HEADER:
             state = { ...state, showHeader: action.payload }
